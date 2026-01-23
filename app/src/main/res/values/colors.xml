@@ -2,4 +2,27 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- Background and Surface Colors -->
+    <color name="background">#F8FAFF</color>
+    <color name="surface">#FFFFFF</color>
+
+    <!-- Primary Colors -->
+    <color name="primary">#4361EE</color>
+    <color name="primary_light">#E7F0FF</color>
+    <color name="primary_dark">#3A56D4</color>
+
+    <!-- Text Colors -->
+    <color name="text_primary">#1A1A1A</color>
+    <color name="text_secondary">#666666</color>
+    <color name="text_disabled">#B3B3B3</color>
+
+    <!-- Accent Colors -->
+    <color name="google_red">#DB4437</color>
+    <color name="error">#FF3B30</color>
+    <color name="success">#34C759</color>
+
+    <!-- UI Elements -->
+    <color name="divider">#E0E0E0</color>
+    <color name="shadow">#1A000000</color>
 </resources>

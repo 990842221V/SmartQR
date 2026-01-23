@@ -1,84 +1,63 @@
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+package com.example.smartqr;
 
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment; // NEW IMPORT
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.navigation.NavigationView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle toggle;
-    private NavigationView navigationView;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize views
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-
-        // Setup toolbar
-        androidx.appcompat.widget.Toolbar toolbar = findViewById(R.id.toolbar);
+        // 1. Setup Toolbar
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Setup drawer toggle
-        toggle = new ActionBarDrawerToggle(
-                this,
-                drawerLayout,
-                toolbar,
-                R.string.navigation_drawer_open,
-                R.string.navigation_drawer_close
-        );
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+        // 2. Initialize Views
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
 
-        // Setup navigation view listener
-        navigationView.setNavigationItemSelectedListener(this);
+        // 3. Setup Navigation Controller (FIXED)
+        // We must find the specific fragment container, NOT the drawer layout.
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
 
-        // Set default checked item
-        navigationView.setCheckedItem(R.id.nav_home);
-    }
+        if (navHostFragment != null) {
+            NavController navController = navHostFragment.getNavController();
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+            // 4. Define Top-Level Destinations
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_dashboard, R.id.nav_history, R.id.nav_settings, R.id.nav_logout)
+                    .setOpenableLayout(drawer)
+                    .build();
 
-        if (id == R.id.nav_home) {
-            showToast("Home Selected");
-            // Add your fragment transaction or intent here
-        } else if (id == R.id.nav_profile) {
-            showToast("Profile Selected");
-        } else if (id == R.id.nav_messages) {
-            showToast("Messages Selected");
-        } else if (id == R.id.nav_settings) {
-            showToast("Settings Selected");
-        } else if (id == R.id.nav_logout) {
-            showToast("Logout Selected");
+            // 5. Connect everything together
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
         }
-
-        // Close drawer after selection
-        drawerLayout.closeDrawer(GravityCompat.START);
-        return true;
     }
 
-    private void showToast(String message) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
+    // 6. Handle the Hamburger Icon / Back Navigation (FIXED)
     @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
+    public boolean onSupportNavigateUp() {
+        NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+
+        if (navHostFragment != null) {
+            NavController navController = navHostFragment.getNavController();
+            return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                    || super.onSupportNavigateUp();
         }
+        return super.onSupportNavigateUp();
     }
 }
