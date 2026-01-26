@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1051127691138",
+    "project_id": "smartqr-582c2",
+    "storage_bucket": "smartqr-582c2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051127691138:android:243830cf6d0bf9f091819b",
+        "android_client_info": {
+          "package_name": "com.example.smartqr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1051127691138-fiej91t7hd4o2g8cu911uef8tg9kgedv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartqr",
+            "certificate_hash": "5c1df7a9aec6a5a2f4f35b51a95c1abf1ddda80c"
+          }
+        },
+        {
+          "client_id": "1051127691138-f0fvj1ijm8epipd1kqvsdd8utnslt47m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnQcBDDZwp_425AFw9ZnKsU5fVg12Ewgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1051127691138-f0fvj1ijm8epipd1kqvsdd8utnslt47m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

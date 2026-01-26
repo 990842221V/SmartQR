@@ -26,4 +26,10 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:windowTranslucentStatus">true</item>
     </style>
+
+    <!-- Base application theme. No ActionBar for login/signup -->
+    <style name="AppTheme.NoActionBar" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize colors/fonts here if needed -->
+    </style>
+
 </resources>

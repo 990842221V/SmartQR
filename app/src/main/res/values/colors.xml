@@ -7,6 +7,9 @@
     <color name="background">#F8FAFF</color>
     <color name="surface">#FFFFFF</color>
 
+    <color name="green">#0CE719</color>
+    <color name="red">#E70A0A</color>
+
     <!-- Primary Colors -->
     <color name="primary">#4361EE</color>
     <color name="primary_light">#E7F0FF</color>
@@ -25,4 +28,52 @@
     <!-- UI Elements -->
     <color name="divider">#E0E0E0</color>
     <color name="shadow">#1A000000</color>
+
+    <!-- Card Colors -->
+    <color name="card_blue">#4361EE</color>
+    <color name="card_green">#06D6A0</color>
+    <color name="card_purple">#7209B7</color>
+    <color name="card_orange">#FF9E00</color>
+
+    <!-- Primary Colors -->
+    <color name="secondary">#06D6A0</color>
+    <color name="secondary_dark">#05C090</color>
+
+    <!-- Text Colors -->
+
+    <!-- Status Colors -->
+    <color name="warning">#FF9E00</color>
+
+    <!-- Ticket Colors -->
+    <color name="ticket_background">#1A1A2E</color>
+    <color name="ticket_text">#FFFFFF</color>
+    <color name="ticket_text_secondary">#B0B0B0</color>
+
+    <!-- Button Colors -->
+    <color name="button_cancel">#FF3B30</color>
+    <color name="button_secondary">#3A56D4</color>
+
+    <!-- Switch Colors -->
+    <color name="switch_track">#E0E0E0</color>
+    <color name="switch_thumb">#4361EE</color>
+
+    <!-- QR Background -->
+    <color name="qr_background">#FFFFFF</color>
+
+
+        <color name="purple_500">#3F51B5</color>
+        <color name="purple_700">#303F9F</color>
+        <color name="teal_200">#FF03DAC5</color>
+        <color name="teal_700">#FF018786</color>
+
+
+        <!-- Custom colors -->
+
+        <color name="accent">#FF4081</color>
+
+
+        <color name="orange">#FF9800</color>
+        <color name="gray">#666666</color>
+        <color name="light_gray">#F5F5F5</color>
+
 </resources>
